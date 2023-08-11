@@ -1,3 +1,5 @@
+import { styled } from "styled-components";
+
 export const Container = styled.div`
 	width: 100%;
 	max-width: 80%;
@@ -41,6 +43,10 @@ background-color: #2d2d37;
 border-radius: 8px;
 padding: 2px 5px;
 margin: 0 12px;
+
+display: flex;
+align-items: center;
+justify-content: center;
 `
 
 export const Menu = styled.a`
@@ -67,4 +73,13 @@ width: 32px;
 height: 32px;
 border-radius: 22px;
 border: 2px solid #ffffff;
+`
+export const Input = styled.input`
+background: transparent;
+flex: 1;
+border: 0;
+color: #ffffff;
+height: 100%;
+width: 100%;
+padding: 0 10px 0 10px;
 `
