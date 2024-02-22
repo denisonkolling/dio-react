@@ -5,17 +5,7 @@ import Header from '../../components/Header';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
 
-import {
-	Container,
-	Title,
-	Column,
-	TitleLogin,
-	SubtitleLogin,
-	EsqueciText,
-	CriarText,
-	Row,
-	Wrapper,
-} from './styles';
+import {	Container,	Title,	Column,	TitleLogin,	SubtitleLogin,	EsqueciText,	CriarText,	Row,	Wrapper,} from './styles';
 
 const Login = () => {
 
