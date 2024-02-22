@@ -50,17 +50,12 @@ const Login = () => {
 						<TitleLogin>Faça seu cadastro</TitleLogin>
 						<SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
 						<form onSubmit={handleSubmit(onSubmit)}>
-							<Input
-								placeholder="E-mail"
-								leftIcon={<MdEmail />}
+							<Input placeholder="E-mail"	leftIcon={<MdEmail />}
 								name="email"
 								control={control}
 							/>
 							{errors.email && <span>E-mail é obrigatório</span>}
-							<Input
-								type="password"
-								placeholder="Senha"
-								leftIcon={<MdLock />}
+							<Input type="password" placeholder="Senha" leftIcon={<MdLock />}
 								name="senha"
 								control={control}
 							/>
