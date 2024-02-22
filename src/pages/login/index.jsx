@@ -4,16 +4,25 @@ import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from 'yup';
 
 import { api } from '../../services/api'
 
 import {	Container,	Title,	Column,	TitleLogin,	SubtitleLogin,	EsqueciText,	CriarText,	Row,	Wrapper,} from './styles';
 
+const schema = yup.object({
+	email: yup.string().email('Email não é válido').required('Campo obrigatório.'),
+	password: yup.string().min(6, 'No mínimo 6 caracteres').required('Campo obrigatório.'),
+}).required()
+
 const Login = () => {
 
 	const navigate = useNavigate();
 
-	const { control, handleSubmit, formState: { errors },	} = useForm({ reValidateMode: 'onChange', 	mode: 'onChange',	});
+	const { control, handleSubmit, formState: { errors, isValid },	} = useForm({ 
+		resolver: yupResolver(schema), 	
+		mode: 'onChange',	});
 
 	const onSubmit = async (formData) => {
 		try {
@@ -53,13 +62,13 @@ const Login = () => {
 							<Input placeholder="E-mail"	leftIcon={<MdEmail />}
 								name="email"
 								control={control}
+								errorMessage={errors?.email?.message}
 							/>
-							{errors.email && <span>E-mail é obrigatório</span>}
 							<Input type="password" placeholder="Senha" leftIcon={<MdLock />}
-								name="senha"
+								name="password"
 								control={control}
+								errorMessage={errors?.password?.message}
 							/>
-							{errors.senha && <span>Senha é obrigatório</span>}
 							<Button title="Entrar" variant="secondary" type="submit" />
 						</form>
 						<Row>
