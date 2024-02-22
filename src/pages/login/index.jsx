@@ -5,20 +5,15 @@ import Header from '../../components/Header';
 import Input from '../../components/Input';
 import { useForm } from 'react-hook-form';
 
+import { api } from '../../services/api'
+
 import {	Container,	Title,	Column,	TitleLogin,	SubtitleLogin,	EsqueciText,	CriarText,	Row,	Wrapper,} from './styles';
 
 const Login = () => {
 
 	const navigate = useNavigate();
 
-	const {
-		control,
-		handleSubmit,
-		formState: { errors },
-	} = useForm({
-		reValidateMode: 'onChange',
-		mode: 'onChange',
-	});
+	const { control, handleSubmit, formState: { errors },	} = useForm({ reValidateMode: 'onChange', 	mode: 'onChange',	});
 
 	const onSubmit = async (formData) => {
 		try {
