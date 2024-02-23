@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { MdEmail, MdLock } from 'react-icons/md';
+import { MdEmail, MdLock, MdVerifiedUser, MdPeople, MdPerson } from 'react-icons/md';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -16,7 +16,7 @@ const schema = yup.object({
 	password: yup.string().min(6, 'No mínimo 6 caracteres').required('Campo obrigatório.'),
 }).required()
 
-const Signin = () => {
+const Signup = () => {
 
 	const navigate = useNavigate();
 
@@ -56,9 +56,14 @@ const Signin = () => {
 				</Column>
 				<Column>
 					<Wrapper>
-						<TitleLogin>Realize seu Login</TitleLogin>
-						<SubtitleLogin>Faça seu login e make the change.</SubtitleLogin>
+						<TitleLogin>Faça seu cadastro</TitleLogin>
+						<SubtitleLogin>Informe seus dados.</SubtitleLogin>
 						<form onSubmit={handleSubmit(onSubmit)}>
+						<Input placeholder="Nome completo"	leftIcon={<MdPerson />}
+								name="nome"
+								control={control}
+								errorMessage={errors?.name?.message}
+							/>
 							<Input placeholder="E-mail"	leftIcon={<MdEmail />}
 								name="email"
 								control={control}
@@ -69,11 +74,11 @@ const Signin = () => {
 								control={control}
 								errorMessage={errors?.password?.message}
 							/>
-							<Button title="Entrar" variant="secondary" type="submit" />
+							<Button title="Cadastrar" variant="secondary" type="submit" />
 						</form>
 						<Row>
-							<EsqueciText>Esqueceu sua senha?</EsqueciText>
-							<CriarText href='/signup'>Criar Conta</CriarText>
+							<EsqueciText>Já possui cadastro?</EsqueciText>
+							<CriarText href='/signin'>Fazer Login</CriarText>
 						</Row>
 					</Wrapper>
 				</Column>
@@ -82,4 +87,4 @@ const Signin = () => {
 	);
 };
 
-export default Signin;
+export default Signup;
