@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
     width: 100%;
-    max-width: 80%;
-    margin: 0 auto;
-    margin-top: 120px;
-
+    height: 95vh;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,6 +16,7 @@ export const Wrapper = styled.div`
 
 export const Column = styled.div`
     flex: 1;
+    margin-left: 200px;
 `
 
 export const Row = styled.div`
@@ -26,6 +25,7 @@ export const Row = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    
 `
 
 export const Title = styled.h2`

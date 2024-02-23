@@ -16,7 +16,7 @@ const schema = yup.object({
 	password: yup.string().min(6, 'No mínimo 6 caracteres').required('Campo obrigatório.'),
 }).required()
 
-const Login = () => {
+const Signin = () => {
 
 	const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ const Login = () => {
 				<Column>
 					<Wrapper>
 						<TitleLogin>Faça seu cadastro</TitleLogin>
-						<SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
+						<SubtitleLogin>Faça seu login e make the change.</SubtitleLogin>
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<Input placeholder="E-mail"	leftIcon={<MdEmail />}
 								name="email"
@@ -82,4 +82,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Signin;
