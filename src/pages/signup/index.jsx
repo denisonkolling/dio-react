@@ -25,17 +25,10 @@ const Signup = () => {
 		mode: 'onChange',	});
 
 	const onSubmit = async (formData) => {
+		
 		try {
-			const { data } = await api.get(
-				`/users?email=${formData.email}&password=${formData.password}`
-			);
-
-			if (data.length && data[0].id) {
-				navigate('/feed');
-				return;
-			}
-
-			alert('Usuário ou senha inválido');
+			const response = await api.post( '/users', formData);
+			console.log(response.data)
 
 		} catch (e) {
 			alert('Houve um erro ao realizar o login', e);
@@ -60,7 +53,7 @@ const Signup = () => {
 						<SubtitleLogin>Informe seus dados.</SubtitleLogin>
 						<form onSubmit={handleSubmit(onSubmit)}>
 						<Input placeholder="Nome completo"	leftIcon={<MdPerson />}
-								name="nome"
+								name="name"
 								control={control}
 								errorMessage={errors?.name?.message}
 							/>
